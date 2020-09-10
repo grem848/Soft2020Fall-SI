@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
@@ -22,10 +23,10 @@ import java.util.List;
 public class BankImplementation extends UnicastRemoteObject implements BankInterface
 {
 //    public static String url = "jdbc:h2:mem:Bank";
-    public static String url = System.getProperty("user.dir") + "\\src\\main\\resources\\db\\bank";
+    public static String url = "jdbc:h2:file:" + System.getProperty("user.dir") + "\\src\\main\\resources\\db\\bank";
 //    public static String url = "jdbc:h2:file:/users/tdi/ideaprojects/p5-rmi-db-Server/src/main/resources/db/bank";
 //    public static String url = "jdbc:h2:file:C:\\Users\\Andreas Heick Laptop\\IdeaProjects\\Soft2020-SI-class\\soft2020fall-si\\code\\P5-RMI-DB-Server\\src\\main\\resources\\db\\bank";
-    public static String user = "";
+    public static String user = "sa";
     public static String password = "";
     public static String driver = "org.h2.Driver";
 
@@ -38,7 +39,7 @@ public class BankImplementation extends UnicastRemoteObject implements BankInter
         return String.format("Hello %s!", name);
     }
 
-    //@GetMapping("/bank")
+    @GetMapping("/bank")
     public List<Customer> getMillionaires()
     {
 
@@ -63,8 +64,8 @@ public class BankImplementation extends UnicastRemoteObject implements BankInter
         catch(Exception e)
         {
             System.out.println(e);
-        }  
-        return list;  
+        }
+        return list;
     }  
 }  
 
