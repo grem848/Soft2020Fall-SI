@@ -1,18 +1,26 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    <title>You first Spring application</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<p><a href="/hello">Greet the world!</a></p>
+    <head>
+        <title>You first Spring application</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+        <p><a href="/hello">Greet the world!</a></p>
 
-<form action="/hello" method="GET" id="nameForm">
-    <div>
-        <label for="nameField">How should the app call you?</label>
-        <input name="myName" id="nameField">
-        <button>Greet me!</button>
-    </div>
-</form>
-</body>
+        <form action="/hello" method="GET" id="nameForm">
+            <div>
+                <label for="nameField">How should the app call you?</label>
+                <input name="myName" id="nameField">
+                <button>Greet me!</button>
+            </div>
+        </form>
+
+        <h3>Show a file-select field which allows only one file to be chosen:</h3>
+        <form action="/fileSaver" method="POST" id="fileForm" enctype="multipart/form-data">
+            <label for="myfile">Select a file:</label>
+            <input type="file" id="myfile" name="myfile">
+            <br><br>
+            <input type="submit">
+        </form>
+    </body>
 </html>
